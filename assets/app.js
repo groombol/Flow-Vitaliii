@@ -650,14 +650,15 @@ if (feed) {
   });
   layoutAllWalls();
 
-  // соседние годы внизу страницы
-  const nav = $('#yearNav');
-  if (nav) {
-    const ys = YEARS.map(x => x.y);
-    const i = ys.indexOf(year);
-    const link = (y, t) => y ? `<a class="st-link" href="year.html?y=${y}">${t}</a>` : '<span></span>';
-    nav.innerHTML = link(ys[i - 1], `← ${ys[i - 1] || ''}`) + link(ys[i + 1], `${ys[i + 1] || ''} →`);
-  }
+  // навигация между годами: вставляется и сверху, и снизу страницы
+  const ys = YEARS.map(x => x.y);
+  const i = ys.indexOf(year);
+  const link = (y, t) => y ? `<a class="st-link" href="year.html?y=${y}">${t}</a>` : '<span></span>';
+  const navHTML = link(ys[i - 1], `← ${ys[i - 1] || ''}`) + link(ys[i + 1], `${ys[i + 1] || ''} →`);
+  const navTop = $('#yearNavTop');
+  const navBot = $('#yearNav');
+  if (navTop) navTop.innerHTML = navHTML;
+  if (navBot)  navBot.innerHTML  = navHTML;
 }
 
 /* ============================================================
@@ -695,10 +696,19 @@ if ('IntersectionObserver' in window) {
 const form = $('#form');
 const sent = $('#sent');
 if (form) {
-  const live = !form.action.includes('PLACEHOLDER');
+  // ╔══════════════════════════════════════════════════════╗
+  // ║  Вставьте сюда данные вашего Telegram-бота           ║
+  // ║  BOT_TOKEN — токен от @BotFather                     ║
+  // ║  CHAT_ID   — ваш личный ID (узнать у @userinfobot)   ║
+  // ╚══════════════════════════════════════════════════════╝
+  const BOT_TOKEN = '8659239155:AAFJZa9Hz6wZeT2eSiXIteY8802bVxjlmns';
+  const CHAT_ID   = '958365774'; // ВРЕМЕННО (твой ID для теста). Заменить на ID Анфисы!
+
+  const live = BOT_TOKEN !== 'REPLACE_WITH_BOT_TOKEN' && CHAT_ID !== 'REPLACE_WITH_CHAT_ID';
+
   if (!live) {
-    const note = $('.form-note');
-    if (note) note.textContent = 'Приёмник письма ещё не подключён';
+    const note = $('.form-note', form);
+    if (note) note.textContent = 'Бот ещё не подключён — вставьте токен и chat_id в app.js';
   }
 
   form.addEventListener('submit', async e => {
@@ -706,25 +716,44 @@ if (form) {
     if (!form.reportValidity()) return;
 
     if (!live) {
-      sent.textContent = 'Форма готова, осталось подключить приёмник писем. Пока напишите в Telegram или на почту.';
+      sent.textContent = 'Бот не подключён. Пока напишите в Telegram или на почту.';
       sent.classList.add('show');
       return;
     }
 
     const btn = $('button[type=submit]', form);
     btn.disabled = true;
+
+    const name    = ($('#f-name',    form)?.value    || '').trim();
+    const place   = ($('#f-place',   form)?.value    || '').trim();
+    const task    = ($('#f-task',    form)?.value    || '').trim();
+    const contact = ($('#f-contact', form)?.value    || '').trim();
+
+    const text = [
+      '📬 Новая заявка с сайта Анфисы',
+      '',
+      `👤 Имя: ${name}`,
+      `📍 Проект и город: ${place}`,
+      `🎬 Что нужно снять:`,
+      task,
+      ``,
+      `📱 Как связаться: ${contact}`,
+    ].join('\n');
+
     try {
-      const res = await fetch(form.action, {
+      const res = await fetch(`https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`, {
         method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: CHAT_ID, text }),
       });
-      if (!res.ok) throw new Error('bad status');
+      const json = await res.json();
+      if (!json.ok) throw new Error(json.description || 'Telegram error');
       form.classList.add('done');
+      sent.textContent = 'Письмо ушло. Отвечу в тот же день.';
       sent.classList.add('show');
     } catch {
       btn.disabled = false;
-      sent.textContent = 'Письмо не ушло. Напишите, пожалуйста, в Telegram или на почту.';
+      sent.textContent = 'Не удалось отправить. Напишите, пожалуйста, в Telegram или на почту.';
       sent.classList.add('show');
     }
   });
