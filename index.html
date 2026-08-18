@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Анфиса. Контент-мейкер: видео, съёмка, монтаж</title>
+<meta name="description" content="Анфиса, контент-мейкер и видеомейкер из Волгограда. Снимаю, монтирую и отдаю готовый материал. Портфолио и дневник творчества по годам.">
+<meta name="theme-color" content="#141210">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23141210'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%23F4F3F0' stroke-width='1.6'/%3E%3Cpath d='M13.5 11.6l7 4.4-7 4.4z' fill='%23C8102E'/%3E%3C/svg%3E">
+<!-- DEPLOY STEP: og:url и og:image требуют абсолютных адресов, они подставляются при выкладке -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Анфиса. Контент-мейкер">
+<meta property="og:description" content="Снимаю, монтирую и отдаю готовый материал. Портфолио и дневник творчества.">
+<meta property="og:url" content="PLACEHOLDER">
+<meta property="og:image" content="PLACEHOLDER">
+<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">К содержанию</a>
+<div class="grain" aria-hidden="true"></div>
+
+<nav class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="nav-mark" href="#top">АНФИСА</a>
+    <div class="nav-links">
+      <a href="#video">Видео</a>
+      <a href="#story" class="opt">История</a>
+      <a href="#also" class="opt">Работы</a>
+      <a href="#vlog" class="opt">Влог</a>
+      <a href="#faq" class="opt">Вопросы</a>
+      <a href="#contact">Написать</a>
+    </div>
+  </div>
+</nav>
+
+<main id="main" tabindex="-1">
+
+  <!-- ============ 01 ГЕРОЙ ============ -->
+  <section class="hero" id="top">
+    <div class="hero-frame">
+      <img class="hero-bg" src="assets/hero-bg.jpg"
+           srcset="assets/hero-bg-s.jpg 1200w, assets/hero-bg.jpg 2400w" sizes="100vw"
+           alt="" width="2400" height="1350" fetchpriority="high">
+      <div class="hero-veil" aria-hidden="true"></div>
+
+      <div class="hero-band">
+        <div class="wrap">
+          <h1 class="hero-word" id="heroWord"><span class="hero-word-in">ПОРТФОЛИО</span><span class="vh">. Анфиса, контент-мейкер: дневник творчества</span></h1>
+        </div>
+      </div>
+
+      <img class="hero-cut" src="assets/hero-cut.webp"
+           srcset="assets/hero-cut-s.webp 1200w, assets/hero-cut.webp 2400w" sizes="100vw"
+           alt="Анфиса на съёмке" width="2400" height="1350">
+
+      <div class="hero-front">
+        <div class="wrap">
+          <div class="hero-copy">
+            <p class="hero-sign" style="--i:0">Анфиса</p>
+            <p class="hero-lede" style="--i:1">Меня зовут Анфиса, я контент-мейкер. Рада познакомить вас со своим портфолио: это дневник моего творчества за все эти годы.</p>
+            <a class="btn" href="#contact" style="--i:2">Написать</a>
+          </div>
+
+          <div class="hero-foot">
+            <span>Контент-мейкер</span>
+            <span class="opt">Съёмка · Монтаж · Фото</span>
+            <a href="https://www.instagram.com/_vitaliii" target="_blank" rel="noopener">@_vitaliii</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 ВИДЕО ============ -->
+  <section class="video dark reveal" id="video">
+    <div class="wrap">
+      <p class="kicker rise">02 / Видео</p>
+      <h2 class="h2 rise">Видео</h2>
+      <p class="lede rise">Я видеомейкер. Снимаю, монтирую и отдаю готовый материал.</p>
+      <p class="v-note rise">Наведите на кадр, ролик пойдёт сам. Нажмите, чтобы посмотреть целиком со звуком.</p>
+      <div class="v-grid" id="vGrid"></div>
+    </div>
+  </section>
+
+  <!-- ============ 03 ИСТОРИЯ ТВОРЧЕСТВА ============ -->
+  <section class="story reveal" id="story">
+    <div class="wrap">
+      <p class="kicker rise">03 / История творчества</p>
+      <h2 class="h2 rise">История творчества</h2>
+      <p class="lede rise">Каждое окно диска это год. Поверните диск и откройте год целиком.</p>
+
+      <div class="disc-stage">
+        <div class="story-left" id="storyLeft"></div>
+
+        <div class="disc" id="disc">
+          <div class="wheel" id="wheel">
+            <div class="plate" aria-hidden="true"></div>
+          </div>
+          <svg class="arc" viewBox="0 0 760 230" aria-hidden="true">
+            <path id="arcPath" d="M40,20 A420,420 0 0,0 720,20" fill="none"/>
+            <text><textPath href="#arcPath" startOffset="50%" text-anchor="middle">Анфиса · дневник творчества</textPath></text>
+          </svg>
+        </div>
+
+        <div class="story-right" id="storyRight"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 СМОТРИТЕ ТАКЖЕ ============ -->
+  <section class="also reveal" id="also">
+    <div class="wrap">
+      <p class="kicker rise">04 / Смотрите также</p>
+      <h2 class="h2 rise">Смотрите также</h2>
+      <p class="lede rise">Здесь все мои любимые работы.</p>
+      <div class="chips" id="chips" role="group" aria-label="Отбор по годам"></div>
+      <div class="wall" id="wall"></div>
+      <div class="wall-more"><button class="btn ghost" id="wallMore" type="button">Показать ещё</button></div>
+    </div>
+  </section>
+
+  <!-- ============ 05 ВЛОГ ============ -->
+  <section class="vlog reveal" id="vlog">
+    <video class="vlog-bg" id="vlogBg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+    <div class="wrap">
+      <p class="kicker rise">05 / Кому стало интересно</p>
+      <h2 class="h2 rise">Кому стало интересно</h2>
+      <div class="vlog-copy">
+        <p class="rise">Родилась и живу в Волгограде, открыта к проектам в других городах России. Недавно окончила университет и в ближайшие годы хочу путешествовать ещё больше. А может, и перееду, кто знает :)</p>
+        <div class="vlog-cta rise">
+          <button class="btn" id="vlogPlay" type="button">Смотреть влог</button>
+          <span class="vlog-note">Короткая вырезка из полного влога на пятьдесят минут</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 ВОПРОСЫ ============ -->
+  <section class="faq reveal" id="faq">
+    <div class="wrap">
+      <p class="kicker rise">06 / Мои любимые вопросы</p>
+      <h2 class="h2 rise">Мои любимые вопросы</h2>
+      <div class="qs rise" id="qs"></div>
+    </div>
+  </section>
+
+  <!-- ============ 07 ФОРМА ============ -->
+  <section class="cta dark reveal" id="contact">
+    <div class="wrap">
+      <p class="kicker rise">07 / Дальше</p>
+      <div class="cta-grid">
+        <div>
+          <h2 class="h2 rise">Расскажи, что будем снимать?</h2>
+          <p class="lede rise">Напишите пару строк о проекте и о том, что нужно. Отвечу в тот же день.</p>
+          <div class="direct rise">
+            <a href="https://t.me/Imvitaliii" target="_blank" rel="noopener">Telegram · @Imvitaliii</a>
+            <a href="https://www.instagram.com/_vitaliii" target="_blank" rel="noopener">Instagram · @_vitaliii</a>
+            <a href="mailto:anfisa.sklyarova2311@yandex.ru">anfisa.sklyarova2311@yandex.ru</a>
+          </div>
+        </div>
+        <div>
+          <form id="form" action="https://formspree.io/f/PLACEHOLDER" method="post" novalidate>
+            <div><label for="f-name">Имя</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+            <div><label for="f-place">Проект и город</label><input id="f-place" name="place" type="text" required></div>
+            <div><label for="f-task">Что нужно снять</label><textarea id="f-task" name="task" rows="3" required></textarea></div>
+            <div><label for="f-contact">Как связаться</label><input id="f-contact" name="contact" type="text" autocomplete="email" required></div>
+            <div class="form-foot">
+              <button class="btn" type="submit">Отправить</button>
+              <span class="form-note">Письмо придёт Анфисе на почту</span>
+            </div>
+          </form>
+          <div class="sent" id="sent" role="status">Письмо ушло. Отвечу в тот же день.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>Анфиса · контент-мейкер</span>
+    <span>Волгоград и вся Россия</span>
+    <a href="https://t.me/Imvitaliii" target="_blank" rel="noopener">Telegram</a>
+    <a href="https://www.instagram.com/_vitaliii" target="_blank" rel="noopener">Instagram</a>
+    <a href="mailto:anfisa.sklyarova2311@yandex.ru">Почта</a>
+    <span>2026</span>
+  </div>
+</footer>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Просмотр работы"></div>
+
+<script src="assets/data.js"></script>
+<script src="assets/app.js" defer></script>
+</body>
+</html>
